@@ -3,11 +3,10 @@ Title: Tools for Reproducible Wellbeing and Survey Data Analysis
 Version: 0.1.0
 Authors@R:
     person(
-        given = "Taylor",
+        given = "Taylor G.",
         family = "Hill",
         email = "thill001@dundee.ac.uk",
-        role = c("aut", "cre")
-    )
+				role = c("aut", "cre", "cph"))
 Description: Provides lightweight tools for common tasks in wellbeing and
     survey data analysis, including recoding survey missing values,
     converting labelled variables, checking missingness, scoring

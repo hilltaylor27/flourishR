@@ -4,3 +4,4 @@
 ^LICENSE\.md$
 ^dev$
 ^CHANGELOG\.md$
+^cran-comments\.md$
