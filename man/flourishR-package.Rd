@@ -2,8 +2,8 @@
 % Please edit documentation in R/flourishR-package.R
 \docType{package}
 \name{flourishR-package}
-\alias{flourishR-package}
 \alias{flourishR}
+\alias{flourishR-package}
 \title{flourishR: Tools for Reproducible Wellbeing and Survey Data Analysis}
 \description{
 \code{flourishR} provides lightweight tools for common tasks in wellbeing
@@ -60,3 +60,4 @@ Authors:
 }
 
 }
+\keyword{internal}

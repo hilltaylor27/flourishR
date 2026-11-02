@@ -23,16 +23,22 @@ treated as missing for scoring. If \code{NULL}, no range restriction is
 applied.}
 }
 \value{
-The original data frame with four additional variables:
+The original data frame with four additional variables.
+Variable names are constructed using the supplied \code{prefix}:
 \describe{
-\item{\if{html}{\out{<prefix>}}.n.valid}{Number of valid item responses.}
-\item{\if{html}{\out{<prefix>}}.sum}{Sum of valid item responses when the minimum-item
-rule is met.}
-\item{\if{html}{\out{<prefix>}}.mean}{Mean of valid item responses when the minimum-item
-rule is met.}
-\item{\if{html}{\out{<prefix>}}.prorated}{Mean of valid item responses multiplied by
-the total number of scale items.}
+\item{\code{prefix.n.valid}}{Number of valid item responses.}
+\item{\code{prefix.sum}}{Sum of valid item responses when the
+minimum-item rule is met.}
+\item{\code{prefix.mean}}{Mean of valid item responses when the
+minimum-item rule is met.}
+\item{\code{prefix.prorated}}{Mean of valid item responses multiplied
+by the total number of scale items.}
 }
+
+In these names, \code{prefix} is replaced by the value supplied to the
+function. For example, \code{prefix = "wellbeing"} generates
+\code{wellbeing.n.valid}, \code{wellbeing.sum}, \code{wellbeing.mean}, and
+\code{wellbeing.prorated}.
 }
 \description{
 Scores a multi-item scale using a specified minimum-item rule and,

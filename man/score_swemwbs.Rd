@@ -35,6 +35,11 @@ Scores the seven-item Short Warwick-Edinburgh Mental Wellbeing Scale
 SWEMWBS items are expected to have values from 1 to 5. Values outside
 this range are treated as missing for scoring. By default, at least
 five of the seven items must be valid for a score to be calculated.
+
+The function calculates raw sum, mean, and prorated sum scores. It does
+not apply the published SWEMWBS raw-to-metric score conversion. The
+resulting scores should not be interpreted as transformed SWEMWBS
+metric scores.
 }
 \examples{
 dat <- data.frame(

@@ -18,16 +18,23 @@
 #'   treated as missing for scoring. If `NULL`, no range restriction is
 #'   applied.
 #'
-#' @return The original data frame with four additional variables:
+
+#' @return The original data frame with four additional variables.
+#'   Variable names are constructed using the supplied `prefix`:
 #'   \describe{
-#'     \item{<prefix>.n.valid}{Number of valid item responses.}
-#'     \item{<prefix>.sum}{Sum of valid item responses when the minimum-item
-#'       rule is met.}
-#'     \item{<prefix>.mean}{Mean of valid item responses when the minimum-item
-#'       rule is met.}
-#'     \item{<prefix>.prorated}{Mean of valid item responses multiplied by
-#'       the total number of scale items.}
+#'     \item{\code{prefix.n.valid}}{Number of valid item responses.}
+#'     \item{\code{prefix.sum}}{Sum of valid item responses when the
+#'       minimum-item rule is met.}
+#'     \item{\code{prefix.mean}}{Mean of valid item responses when the
+#'       minimum-item rule is met.}
+#'     \item{\code{prefix.prorated}}{Mean of valid item responses multiplied
+#'       by the total number of scale items.}
 #'   }
+#'
+#'   In these names, `prefix` is replaced by the value supplied to the
+#'   function. For example, `prefix = "wellbeing"` generates
+#'   `wellbeing.n.valid`, `wellbeing.sum`, `wellbeing.mean`, and
+#'   `wellbeing.prorated`.
 #'
 #' @examples
 #' dat <- data.frame(

@@ -32,7 +32,5 @@
 #' See the package README for an example workflow combining the data
 #' preparation, scoring, and visualisation functions.
 #'
-#' @docType package
-#' @name flourishR-package
-#' @aliases flourishR
-NULL
+#' @keywords internal
+"_PACKAGE"
