@@ -1,0 +1,9 @@
+bibentry(
+  bibtype = "Manual",
+  title = "flourishR: Tools for Reproducible Wellbeing and Survey Data Analysis",
+  author = person("Taylor G.", "Hill"),
+  year = "2026",
+  note = paste("R package version", meta$Version),
+  url = "https://CRAN.R-project.org/package=flourishR",
+  doi = "10.32614/CRAN.package.flourishR"
+)

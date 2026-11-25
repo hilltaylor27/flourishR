@@ -5,3 +5,14 @@
 .DS_Store
 .quarto
 Icon?
+/doc/
+/Meta/
+._*
+/data-raw/
+/dev/
+/functions/
+/flourishR_*.R
+/flourishR_*.pdf
+/*.tar.gz
+/*.Rcheck/
+/CHANGELOG.md

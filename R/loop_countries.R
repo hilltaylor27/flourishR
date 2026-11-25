@@ -15,6 +15,12 @@
 #'   object that can be combined using `dplyr::bind_rows()`.
 #' @param ... Additional arguments passed to `analysis_function`.
 #'
+#' @param formula Optional model formula, instead of analysis_function.
+#' @param wave Annual wave to analyse.
+#' @param weighted Use a country-specific GFS survey design.
+#' @param family GLM family.
+#' @param conf.level Confidence level.
+#' @details In formula mode, returns coefficient estimates, standard errors, confidence intervals, sample sizes and model status. Additional arguments are passed to glm or svyglm.
 #' @return A data frame containing the combined outputs from
 #'   `analysis_function`, with the country variable as the first column.
 #'
@@ -41,10 +47,18 @@
 #' )
 #'
 #' @export
+#' @param lonely_psu Optional survey single-PSU variance method; NULL preserves current settings.
 loop_countries <- function(data,
                            country_var,
-                           analysis_function,
-                           ...) {
+                           analysis_function = NULL,
+                           ..., formula = NULL, wave = NULL, weighted = FALSE, family = stats::gaussian(), conf.level = 0.95, lonely_psu = NULL) {
+  old_options <- set_lonely_psu(lonely_psu)
+  on.exit(options(old_options), add = TRUE)
+  if (!is.null(formula)) {
+    if (!is.null(analysis_function)) stop("Supply formula or analysis_function, not both.")
+    return(country_models(data, country_var, formula, wave, weighted, family, conf.level, ...))
+  }
+  if (weighted || !is.null(wave)) stop("wave and weighted require formula mode.")
 
   # Check inputs
 

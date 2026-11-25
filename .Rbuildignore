@@ -5,3 +5,17 @@
 ^dev$
 ^CHANGELOG\.md$
 ^cran-comments\.md$
+^data-raw$
+^flourishR_cross_national\.R$
+^flourishR_longitudinal\.R$
+^flourishR_final_functions\.R$
+^flourishR_batch_a\.R$
+^Icon\r?$
+^\._.*$
+
+^flourishR_tipi_update\.R$
+^flourishR_batch_b\.R$
+^doc$
+^Meta$
+^flourishR_.*\.pdf$
+^\.github$

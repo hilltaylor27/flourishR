@@ -4,13 +4,15 @@
 \alias{check_missingness}
 \title{Summarise missing data patterns}
 \usage{
-check_missingness(data, variables = NULL)
+check_missingness(data, variables = NULL, by = NULL)
 }
 \arguments{
 \item{data}{A data frame.}
 
 \item{variables}{An optional character vector containing the names of
 variables to check. If \code{NULL}, all variables in \code{data} are checked.}
+
+\item{by}{Optional character vector of grouping variables. Grouped output includes the group size n.}
 }
 \value{
 A data frame with one row per variable and three columns:

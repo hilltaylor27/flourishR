@@ -6,57 +6,61 @@
 \alias{flourishR-package}
 \title{flourishR: Tools for Reproducible Wellbeing and Survey Data Analysis}
 \description{
-\code{flourishR} provides lightweight tools for common tasks in wellbeing
-and survey data analysis, including data preparation, scale scoring,
-missing-data checks, cross-national analysis, and longitudinal
-visualisation.
-}
-\details{
-The package is designed to support transparent and reproducible
-workflows with large-scale survey and longitudinal data.
+Tools for preparing, analysing and visualising cross-national and longitudinal
+survey data, with dedicated support for the Global Flourishing Study (GFS).
+Survey-weighted analyses use country-specific designs; mixed models are
+unweighted. See the GFS workflow vignette for a reproducible example.
 }
 \section{Data preparation}{
 
-\itemize{
-\item \code{\link[=label_to_factor]{label_to_factor()}} converts labelled survey variables to factors.
-\item \code{\link[=recode_missing]{recode_missing()}} recodes survey-specific missing-value codes to \code{NA}.
-\item \code{\link[=check_missingness]{check_missingness()}} summarises missingness across variables.
-}
+
+\code{\link[=label_to_factor]{label_to_factor()}}, \code{\link[=recode_missing]{recode_missing()}}, \code{\link[=check_missingness]{check_missingness()}}, \code{\link[=gfs_dictionary]{gfs_dictionary()}}, \code{\link[=gfs_countries]{gfs_countries()}}, \code{\link[=gfs_prepare]{gfs_prepare()}}, \code{\link[=join_country_data]{join_country_data()}}.
 }
 
-\section{Scale scoring}{
+\section{Survey design and retention}{
 
-\itemize{
-\item \code{\link[=score_scale]{score_scale()}} scores general multi-item scales.
-\item \code{\link[=score_swemwbs]{score_swemwbs()}} provides a wrapper for scoring the seven SWEMWBS items.
-}
+
+\code{\link[=gfs_weights]{gfs_weights()}}, \code{\link[=gfs_design]{gfs_design()}}, \code{\link[=check_retention]{check_retention()}}.
 }
 
 \section{Cross-national analysis}{
 
-\itemize{
-\item \code{\link[=loop_countries]{loop_countries()}} applies an analysis function separately by country.
-\item \code{\link[=plot_cross_national]{plot_cross_national()}} visualises mean outcomes across countries.
-}
+
+\code{\link[=describe_countries]{describe_countries()}}, \code{\link[=loop_countries]{loop_countries()}}, \code{\link[=country_moderation]{country_moderation()}}, \code{\link[=meta_countries]{meta_countries()}}.
 }
 
 \section{Longitudinal analysis}{
 
-\itemize{
-\item \code{\link[=plot_longitudinal]{plot_longitudinal()}} visualises outcome trajectories across waves.
+
+\code{\link[=create_lags]{create_lags()}}, \code{\link[=change_scores]{change_scores()}}, \code{\link[=within_between]{within_between()}}, \code{\link[=loop_longitudinal]{loop_longitudinal()}}.
 }
+
+\section{Visualisation}{
+
+
+\code{\link[=plot_cross_national]{plot_cross_national()}}, \code{\link[=plot_longitudinal]{plot_longitudinal()}}, \code{\link[=plot_country_effects]{plot_country_effects()}}, \code{\link[=plot_retention]{plot_retention()}}, \code{\link[=plot_missingness]{plot_missingness()}}.
+}
+
+\section{Personality scoring}{
+
+
+\code{\link[=score_tipi]{score_tipi()}}.
 }
 
 \seealso{
-See the package README for an example workflow combining the data
-preparation, scoring, and visualisation functions.
+Useful links:
+\itemize{
+  \item \url{https://github.com/hilltaylor27/flourishR}
+  \item Report bugs at \url{https://github.com/hilltaylor27/flourishR/issues}
+}
+
 }
 \author{
-\strong{Maintainer}: Taylor Hill \email{thill001@dundee.ac.uk}
+\strong{Maintainer}: Taylor G. Hill \email{thill001@dundee.ac.uk} [copyright holder]
 
 Authors:
 \itemize{
-  \item Taylor Hill \email{thill001@dundee.ac.uk}
+  \item Taylor G. Hill \email{thill001@dundee.ac.uk} [copyright holder]
 }
 
 }

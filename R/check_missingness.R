@@ -7,6 +7,7 @@
 #' @param variables An optional character vector containing the names of
 #'   variables to check. If `NULL`, all variables in `data` are checked.
 #'
+#' @param by Optional character vector of grouping variables. Grouped output includes the group size n.
 #' @return A data frame with one row per variable and three columns:
 #'   \describe{
 #'     \item{variable}{Variable name.}
@@ -31,7 +32,20 @@
 #'
 #' @export
 check_missingness <- function(data,
-                              variables = NULL) {
+                              variables = NULL, by = NULL) {
+  if (!is.null(by)) {
+    stopifnot(is.data.frame(data), is.character(by), length(by) > 0,
+              !anyDuplicated(by), all(by %in% names(data)))
+    if (any(by %in% c("variable", "n_missing", "pct_missing", "n"))) stop("Reserved grouping name.")
+    if (is.null(variables)) variables <- setdiff(names(data), by)
+    grouped <- dplyr::group_by(data, !!!rlang::syms(by))
+    result <- dplyr::group_modify(grouped, function(.x, .y) {
+      out <- check_missingness(.x, variables = setdiff(variables, by))
+      out$n <- rep(nrow(.x), nrow(out))
+      out
+    })
+    return(as.data.frame(dplyr::ungroup(result)))
+  }
 
   # Check inputs
 
@@ -60,8 +74,8 @@ check_missingness <- function(data,
 
   output <- data.frame(
     variable = variables,
-    n_missing = NA,
-    pct_missing = NA
+    n_missing = rep(NA_integer_, length(variables)),
+    pct_missing = rep(NA_real_, length(variables))
   )
 
   for (i in seq_along(variables)) {

@@ -38,11 +38,15 @@
 #' )
 #'
 #' @export
+#' @param estimates Logical; use precomputed country means and confidence intervals.
+#' @param label_countries Logical; translate GFS country codes.
 plot_cross_national <- function(data,
                                 country_var,
                                 outcome_var,
                                 plot_title = NULL,
-                                y_label = NULL) {
+                                y_label = NULL, estimates = FALSE, label_countries = FALSE) {
+  if (label_countries) data[[country_var]] <- gfs_countries(data[[country_var]], unknown='error')
+  if (estimates) return(country_mean_plot(data, country_var, outcome_var, plot_title, y_label))
 
   # Check inputs
 

@@ -1,36 +1,32 @@
 #' flourishR: Tools for Reproducible Wellbeing and Survey Data Analysis
 #'
-#' `flourishR` provides lightweight tools for common tasks in wellbeing
-#' and survey data analysis, including data preparation, scale scoring,
-#' missing-data checks, cross-national analysis, and longitudinal
-#' visualisation.
-#'
-#' The package is designed to support transparent and reproducible
-#' workflows with large-scale survey and longitudinal data.
-#'
+#' Tools for preparing, analysing and visualising cross-national and longitudinal
+#' survey data, with dedicated support for the Global Flourishing Study (GFS).
+#' Survey-weighted analyses use country-specific designs; mixed models are
+#' unweighted. See the GFS workflow vignette for a reproducible example.
 #' @section Data preparation:
 #'
-#' - [label_to_factor()] converts labelled survey variables to factors.
-#' - [recode_missing()] recodes survey-specific missing-value codes to `NA`.
-#' - [check_missingness()] summarises missingness across variables.
+#' [label_to_factor()], [recode_missing()], [check_missingness()], [gfs_dictionary()], [gfs_countries()], [gfs_prepare()], [join_country_data()].
 #'
-#' @section Scale scoring:
+#' @section Survey design and retention:
 #'
-#' - [score_scale()] scores general multi-item scales.
-#' - [score_swemwbs()] provides a wrapper for scoring the seven SWEMWBS items.
+#' [gfs_weights()], [gfs_design()], [check_retention()].
 #'
 #' @section Cross-national analysis:
 #'
-#' - [loop_countries()] applies an analysis function separately by country.
-#' - [plot_cross_national()] visualises mean outcomes across countries.
+#' [describe_countries()], [loop_countries()], [country_moderation()], [meta_countries()].
 #'
 #' @section Longitudinal analysis:
 #'
-#' - [plot_longitudinal()] visualises outcome trajectories across waves.
+#' [create_lags()], [change_scores()], [within_between()], [loop_longitudinal()].
 #'
-#' @seealso
-#' See the package README for an example workflow combining the data
-#' preparation, scoring, and visualisation functions.
+#' @section Visualisation:
+#'
+#' [plot_cross_national()], [plot_longitudinal()], [plot_country_effects()], [plot_retention()], [plot_missingness()].
+#'
+#' @section Personality scoring:
+#'
+#' [score_tipi()].
 #'
 #' @keywords internal
 "_PACKAGE"

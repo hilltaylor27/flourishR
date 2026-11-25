@@ -44,13 +44,22 @@
 #' )
 #'
 #' @export
+#' @param country_var Optional country column for separate trajectories.
+#' @param estimates Logical; use precomputed means and confidence intervals.
+#' @param label_countries Logical; translate GFS country codes.
 plot_longitudinal <- function(data,
                               id_var,
                               wave_var,
                               outcome_var,
                               show_individuals = FALSE,
                               plot_title = NULL,
-                              y_label = NULL) {
+                              y_label = NULL, country_var = NULL, estimates = FALSE, label_countries = FALSE) {
+  if (!is.null(country_var)) {
+    if (show_individuals) stop('Individual trajectories are not supported in country mode.')
+    if (label_countries) data[[country_var]] <- gfs_countries(data[[country_var]], unknown='error')
+    return(country_trajectory_plot(data, country_var, wave_var, outcome_var, estimates, plot_title, y_label))
+  }
+  if (estimates || label_countries) stop('Specify country_var.')
 
   # Check inputs
 

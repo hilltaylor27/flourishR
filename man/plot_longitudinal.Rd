@@ -11,7 +11,10 @@ plot_longitudinal(
   outcome_var,
   show_individuals = FALSE,
   plot_title = NULL,
-  y_label = NULL
+  y_label = NULL,
+  country_var = NULL,
+  estimates = FALSE,
+  label_countries = FALSE
 )
 }
 \arguments{
@@ -34,6 +37,12 @@ from \code{outcome_var}.}
 
 \item{y_label}{Optional label for the outcome axis. If \code{NULL}, a label
 is generated from \code{outcome_var}.}
+
+\item{country_var}{Optional country column for separate trajectories.}
+
+\item{estimates}{Logical; use precomputed means and confidence intervals.}
+
+\item{label_countries}{Logical; translate GFS country codes.}
 }
 \value{
 A \code{ggplot} object containing the longitudinal trajectory plot.

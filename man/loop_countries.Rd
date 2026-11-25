@@ -4,7 +4,18 @@
 \alias{loop_countries}
 \title{Apply an analysis function across countries}
 \usage{
-loop_countries(data, country_var, analysis_function, ...)
+loop_countries(
+  data,
+  country_var,
+  analysis_function = NULL,
+  ...,
+  formula = NULL,
+  wave = NULL,
+  weighted = FALSE,
+  family = stats::gaussian(),
+  conf.level = 0.95,
+  lonely_psu = NULL
+)
 }
 \arguments{
 \item{data}{A data frame.}
@@ -17,6 +28,18 @@ each country. The function must accept a \code{data} argument and return an
 object that can be combined using \code{dplyr::bind_rows()}.}
 
 \item{...}{Additional arguments passed to \code{analysis_function}.}
+
+\item{formula}{Optional model formula, instead of analysis_function.}
+
+\item{wave}{Annual wave to analyse.}
+
+\item{weighted}{Use a country-specific GFS survey design.}
+
+\item{family}{GLM family.}
+
+\item{conf.level}{Confidence level.}
+
+\item{lonely_psu}{Optional survey single-PSU variance method; NULL preserves current settings.}
 }
 \value{
 A data frame containing the combined outputs from
@@ -30,6 +53,8 @@ output.
 \details{
 Missing values in the country variable are excluded. Additional
 arguments supplied through \code{...} are passed to the analysis function.
+
+In formula mode, returns coefficient estimates, standard errors, confidence intervals, sample sizes and model status. Additional arguments are passed to glm or svyglm.
 }
 \examples{
 dat <- data.frame(
