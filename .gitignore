@@ -16,3 +16,8 @@ Icon?
 /*.tar.gz
 /*.Rcheck/
 /CHANGELOG.md
+/manuscript outputs/
+/reproduction/*.csv
+/reproduction/*.xlsx
+/reproduction/*.rds
+/reproduction/*.RData
